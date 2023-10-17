@@ -4,24 +4,24 @@ import { NextResponse } from "next/server";
 export default authMiddleware({
   publicRoutes: ["/"],
   afterAuth: async (auth, req) => {
-    const response = NextResponse.next()
-    response.cookies.set('vercel', 'fast', {
-      sameSite: 'none',
+    const response = NextResponse.next();
+    response.cookies.set({
+      name: "first",
+      value: `${Math.random()}`,
+      path: "/",
+      sameSite: "none",
       secure: true,
     });
-    response.cookies.set({
-      name: 'vercel-also',
-      value: 'very-fast',
-      path: '/',
-      sameSite: 'none',
+    response.cookies.set("second", `${Math.random()}`, {
+      sameSite: "none",
       secure: true,
-    })
-    response.cookies.set('vercel-is', 'very-very-fast', {
-      sameSite: 'none',
+    });
+    response.cookies.set("third", "fast", {
+      sameSite: "none",
       secure: true,
-    }); 
+    });
     return response;
-  }
+  },
 });
 
 export const config = {
