@@ -3,7 +3,7 @@ import Link from "next/link";
 import componentsImg from "./assets/components.svg";
 import { DownArrow, RightArrow } from "./icons";
 import "./home.css";
-import ShowCookies from './ShowCookies.tsx';
+import ShowCookies from './ShowCookies';
 
 export default function Home() {
   return (
