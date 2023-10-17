@@ -4,7 +4,7 @@ export default () => (
     <>
         <h2>Cookies</h2>
         <pre>
-            {JSON.stringify(document.cookie,null, 2)}
+            {(document.cookie ?? '').replace(';', ';\n')}
         </pre>
     </>
 );
